@@ -1,0 +1,693 @@
+:root{
+  --font-family: "Monument Extended", "Helvetica", Arial, sans-serif;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header{
+  width: 100%;
+  min-height: 100vh;
+  background: url(./images/1024.jpg) #E0D6C6;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
+  background-blend-mode: normal;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: max-content 1fr;
+  place-items: center;
+  grid-template-areas: 
+  "navigation-menu navigation-menu"
+  "card-menu content-menu";
+  overflow-y: hidden;
+}
+
+.navigation-menu{  
+  z-index: 100;
+  width: 100%;
+  padding: 1rem 5rem;
+  grid-area: navigation-menu;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(38, 38, 38, 0.432);
+  position: relative;
+}
+
+.image-logo{
+  width: 3.2rem;
+  aspect-ratio: 1/1;
+}
+
+.icons{
+  display: flex;
+  gap: 2rem;
+}
+
+i{
+  color: rgb(230, 230, 230);
+  transition: color 100ms linear;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+i:hover{
+  color: rgb(255, 255, 255);
+}
+
+#checkbox{
+  display: none;
+}
+
+.checker{
+  width: 2rem;
+  height: 3.5px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+}
+
+.checker::after{
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  width: 2rem;
+  height: 3.5px;
+  background-color: inherit;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+.checker::before{
+  content: "";
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0;
+  width: 2rem;
+  height: 3.5px;
+  background-color: inherit;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+.content-menu-navigation{  
+  position: fixed;
+  top: 0;
+  right: -25.5rem;
+  width: 25.5rem;
+  height: 100vh;
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  align-items: center;
+  overflow: auto;
+  scroll-snap-type: y proximity;
+  transition: right 0.2s linear;
+  z-index: 200;
+}
+
+.content-menu-navigation::-webkit-scrollbar {
+	width: 10px;
+}
+
+.content-menu-navigation::-webkit-scrollbar-thumb {
+	background: rgb(142, 142, 142);
+}
+
+.content-menu-navigation::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.contact-slider-menu{
+  scroll-snap-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+}
+
+
+
+.upper-slide-menu{
+  width: 25.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 2.2rem;
+  position: fixed;
+  top: 0;
+  right: -25.5rem;
+  background-color: black;
+  z-index: 101;
+  transition: right 0.2s linear;
+}
+
+.logo-slider{
+  width: 11.2rem;
+}
+
+#check{
+  display: none;
+}
+
+.check{
+  width: 1.5rem;
+  height: 3.5px;
+  background-color: rgb(240, 240, 240);
+  transform: rotate(45deg);
+  cursor:pointer
+}
+
+.check::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.content-slider{
+  width: 100%;
+  padding: 7.5rem 2.2rem 10rem 2.2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.icons-slider{
+  width: 25.5rem;
+  padding: 1.8rem 2.2rem;
+  position: fixed;
+  bottom: 0;
+  right: -25.5rem;
+  background-color: black;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.2rem;
+  z-index: 101;
+  transition: right 0.2s linear;
+}
+
+.upper-slider-icons{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.lower-sign-in--method{
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: start;
+  gap: 0.8rem;
+}
+
+.anchor-sign-in{
+  text-decoration: none;
+  font-family: var(--font-family);
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.75;
+  padding: 0.1rem 0.8rem;
+  background-color: rgb(0, 0, 0);
+  border: 2px solid white;
+  transition: all 0.2s linear;
+}
+
+.anchor-sign-in:hover{
+  background-color: white;
+  color: rgb(0, 0, 0);
+}
+
+.para-slider{
+  color: white;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.75;
+}
+
+.anchor-sign-up{
+  text-decoration: none;
+  font-family: var(--font-family);
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.75;
+  cursor: pointer;
+}
+
+.contact-slider-menu{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center start;
+}
+
+.label-for-slider{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+}
+
+.slider-menu-heading,.heading-contact-slider{
+  color: white;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.arrow-upper{
+  width: 0.55rem;
+  height: 0.6rem;
+  display: grid;
+  place-items: center;
+  background-color: black;
+}
+
+.arrow-lower{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  clip-path: polygon(0 24%, 0 0, 100% 50%, 0 100%, 0 79%, 63% 49%);
+}
+
+.contact-slider-menu > input[type="checkbox"]:checked ~ label > .arrow-upper{
+  transform: rotate(270deg);
+}
+
+.contact-slider-menu > input[type="checkbox"] ~ label{
+  cursor: pointer;
+}
+
+.lower-slider-contact-section{
+  width: 100%;
+  padding: 1rem 1.2rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  display: none;
+}
+
+.lower-slide-heading{
+  color: rgb(130, 130, 130);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: color 0.2s linear;
+}
+
+.lower-slide-heading:hover{
+  color: white;
+}
+
+.contact-slider-menu > input[type="checkbox"]:checked ~ .lower-slider-contact-section{
+  display: grid;
+}
+
+#checkbox:checked ~ .content-menu-navigation,#checkbox:checked ~ .content-menu-navigation > .upper-slide-menu,#checkbox:checked ~ .content-menu-navigation > .icons-slider{
+  right: 0;
+}
+
+.card-menu{
+  width: 100%;
+  height: 100%;
+  padding: 0 4rem;
+  display: grid;
+  grid-template-columns: repeat(2,max-content);
+  align-items: center;
+  justify-content: end;
+  justify-items: end;
+  gap: 1rem;
+  grid-template-areas: "heading-card-menu image-main-page";
+  background-color: rgba(38, 38, 38, 0.432);
+  grid-area: card-menu; 
+  position: relative;
+  z-index: 50;
+}
+
+.image-main-page{
+  width: 28.5rem;
+  aspect-ratio: 1/1;
+  grid-area: image-main-page;
+}
+
+.heading-card-menu{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: var(--font-family);
+  font-style: italic;
+  font-size: 1.05rem;
+  grid-area: heading-card-menu;
+  transform: rotate(270deg) translatex(2.25rem);
+  transform-origin: right;
+}
+
+.colorful-text{
+  color: #50A584;
+}
+
+.uncoloured-text{
+  color: white;
+}
+
+.content-menu{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: start;
+  align-content: center;
+  gap: 5rem;
+  background-color: rgba(38, 38, 38, 0.432);
+  position: relative;
+  z-index: 50;
+}
+
+.upper-content-menu{
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.heading-upper-content-menu-transparent{
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 2.8rem;
+  -webkit-text-stroke: 2px white;
+  -webkit-text-fill-color: transparent;  
+}
+
+.heading-upper-content-menu-normal{
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 2.8rem;
+  color: white;
+}
+
+.lower-content-menu{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap:2.5rem;
+}
+
+.listen-now{
+  padding: 0.8rem 1.8rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #50A584;
+  border: 2px solid #50A584;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.2s linear;
+}
+
+.listen-header{
+  width: max-content;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: white;
+  transition: color 0.2s linear;
+}
+
+.listen-now > i{
+  transition: color 0.2s linear;
+}
+
+.listen-now:hover{
+  background-color: white;
+  border: 2px solid white;
+}
+
+.listen-now:hover > .listen-header,.listen-now:hover > i{
+  color: black;
+}
+
+.share-button{
+  padding: 0.8rem 1.8rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.share-button > i{
+  transition: color 0.2s linear;
+}
+
+.share-button:hover{
+  background-color: black;
+  border: 2px solid black;
+}
+
+.share-button:hover > i,.share-button:hover > .listen-header{
+  color: white;
+}
+
+input[type="checkbox"]{
+  display: none;
+}
+
+.khali{
+  width: 2rem;
+  height: 2rem;
+}
+
+.checker{
+  position: absolute;
+  top: 2.5rem;
+  right: 5rem;
+  z-index: 210;
+}
+
+#checkbox:checked ~ .checker{
+  position: fixed;
+  top: 2rem;
+  animation: magic 0.2s linear 1;
+}
+
+@keyframes magic {
+  from{
+    opacity: 1;
+  }
+  
+  to{
+    opacity: 0;
+  }
+}
+
+#checkbox:checked ~ .checker::after{
+  display: none;
+}
+
+#checkbox:checked ~ .checker{
+  transform: rotate(45deg);
+  right: 1.5rem;
+  cursor: pointer;
+  width: 1.5rem;
+  height: 3.5px;
+}
+
+#checkbox:checked ~ .checker::before{
+  transform: rotate(90deg);
+  top: 0.2px;
+  cursor: pointer;
+  width: 1.5rem;
+  height: 3.5px;
+}
+
+
+.icons{
+  position: absolute;
+  top: 110%;
+  right: 5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (max-width:1200px){
+  .icons{
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    place-items: center;
+    gap: 5vmin;
+  }
+  .navigation-menu{
+    padding: 0.5rem 2rem;
+    background-color: rgba(0, 0, 0, 0.88);
+  }
+  .image-logo{
+    width: 2.8rem;
+  }
+  .checker{
+    top: 1.7rem;
+    right: 2rem;
+  }
+}
+
+@media (max-width:500px){
+  .icons{
+    display: none;
+  }
+}
+
+
+
+@media (max-width:1280px) {
+  header{
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "navigation-menu"
+    "card-menu"
+    "content-menu";
+  }
+  .card-menu{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 0;
+  }
+  .image-main-page{
+    order: 2;
+  }
+  .heading-card-menu{
+    order: 1;
+  }
+}
+
+@media (max-width:850px) {
+  .card-menu{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "image-main-page"
+    "heading-card-menu ";
+    place-items: center;
+    place-content: center;
+  }
+  .heading-card-menu{
+    transform: rotate(0) translateX(0);
+  }
+  .content-menu{
+    padding: 0 2rem 2rem;
+  }
+}
+
+@media (max-width:500px){
+  .card-menu{
+    padding: 5rem 2rem;
+  }
+  .image-main-page{
+    width: 100%;
+  }
+  .heading-card-menu{
+    justify-self: start;
+  }
+  .heading-upper-content-menu-transparent,.heading-upper-content-menu-normal{
+    color: white;
+    font-size: 2rem;
+  }
+  .listen-now{
+    padding: 0.8rem 1rem;
+    gap: 0.4rem;
+  }
+  .lower-content-menu{
+    gap: 0.5rem;
+  }
+  .share-button{
+    padding: 0.8rem 1rem;
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width:365px) {
+  .content-menu{
+    padding: 0 0.5rem 2rem;
+  }
+}
+
+@media (max-width:25.5rem) {
+  header{
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "card-menu"
+    "content-menu";
+  }
+  .navigation-menu{
+    padding: 0.5rem 0.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .content-menu-navigation,.upper-slide-menu,.icons-slider{
+    width: 100%;
+  }
+  .upper-slide-menu{
+    padding: 1rem;
+  }
+  .icons-slider{
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  .contact-slider{
+    padding: 7.5rem 2.2rem 10rem 2.2rem;
+  }
+  .upper-slider-icons{
+    gap: 0;
+    justify-content: space-between;
+  }
+  .checker{
+    right: 0.5rem;
+  }
+  .card-menu{
+    padding: 8rem 2rem;
+  }
+  .logo-slider{
+    width: 10rem;
+  }
+  .content-menu-navigation::-webkit-scrollbar {
+    width: 5px;
+  }
+  .checker,.checker::before,.check::after{
+    cursor: progress;
+  }
+}
